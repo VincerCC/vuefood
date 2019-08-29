@@ -1714,48 +1714,70 @@ props:['food'],
 
 ## shopInfo组件
 
-1. 引入shopInfo
+1. 引入info数据
 
    ```
-   ...mapState(['shopInfo'])
+   ...mapState(['info'])
    
    ```
 
 2. 在表现中渲染数据
 
-3. 在钩子mounted中给相关div创建滑动实例
+3. 在钩子mounted中给相关div创建垂直滑动，以及给图片水平滑动
 
    ```
-   new BScroll('.shop-info')
+   mounted(){
+       new BScroll('.shop-info',{//垂直滑动对象
+          click:true
+          //这里不能用watch监视info的变化，因为刚进来是默认在info组件展示，他已经初始化好了，但是info组件还没初始化
+        })
+        new BScroll('.pic-wrapper',{//图片水平滑动对象
+        click:true,
+        scrollX:true
+        //现在还不能滑动是因为ul的宽度347，li宽度120*5，即ul宽度没有被li撑开，只需要将ul设置为display：inline-block即可解决
+        })
+    }
    
    ```
-
-4. 还需要给商家图片一个横向滑动，但是列表ul的宽和是屏幕的宽度，没有被li撑开
-
-5. 给ul增加一个ref属性，名为ul中操作ul对象，在mounted钩子函数中增加其宽度
-
-   ```js
-   let ul = this.$refs.ul
-   let width = 126 * this.shopInfo.pics.length
-   ul.style.width= width+'px'
-   new BScroll('.pic-wrapper', {
-       scrollX: true
-   })
-   ```
-
-   > 这里有个问题，就是刷新此页面，this.shopInfo为unfiend，排查了很久的原因，在于不能刷新此页面来测试，因为this.shopInfo，是直接通过映射来的，因为在shopHead组件已经分发过vuex相关action，所以单单刷新此页面来测试，得不到this.shopInfo的值，要在/shop页面刷新，点击“商家”来进入组件测试
-
+4. 安装图片缩略图插件vant
+  ```
+  npm i vant -S
+  ```
+5. babel-plugin-import 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式
+  ```
+  npm i babel-plugin-import -D
+  ```
+6. 在.babelrc 中添加配置
+  ```
+  "plugins": [
+    ["import", {
+      "libraryName": "vant",
+      "libraryDirectory": "es",
+      "style": true
+    }]
+  ]
+  ```
+7. 在需要使用的组件中引入
+  ```
+  import Vue from 'vue';
+  //导入vant的图片预览功能
+  import { ImagePreview } from 'vant';
+  Vue.use(ImagePreview);
+  ```
+8. 实现缩略图功能代码
+  ```
+  在图片上绑定点击事件@click="getImgArr"
+  getImgArr(){
+        // console.log(this.info.pics)
+        ImagePreview({
+          images:this.info.pics,
+          showIndicators:true,//图片下边的小圆点
+          closeOnPopstate:true//当页面发生改变时自动关闭图片
+        })
+  }
+  ```
 ## 缓存路由组件
-
-通常外层路由这么做 (就是每一个大组件) 
-
-给组件增加一个
-
-```html
-<keep-alive>
-
-</keep-alive>
-```
+ keep-alive是缓存路由组件的作用，不至于切换路由的时候将之前的状态重新更新
 
 在Shop.vue中给路由增加缓存标签
 
