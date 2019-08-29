@@ -782,7 +782,7 @@ git branch dev //查看分支 git branch -v 绿色代表当前分支 git checkou
 6. 创建远程地址别名
 
    ```
-   git remote add origin https://github.com/VincerCC/vuefood.git
+   git remote add origin git remote add origin https://github.com/VincerCC/vuefoodapp.git
    ```
 
 7. 把项目推送到git中
