@@ -7,7 +7,7 @@
 
 一个仿外卖的vue单页应用程序Web App（spa），包含常见的功能
 
-![img](https://github.com/PsychicHira/vue-take/blob/master/img/1.png)
+![img](https://github.com/VincerCC/vuefood/blob/master/image/app%E9%A6%96%E9%A1%B5.png)
 
 ![img](https://github.com/PsychicHira/vue-take/blob/master/img/2.png)
 
