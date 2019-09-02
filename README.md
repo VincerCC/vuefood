@@ -1,6 +1,17 @@
 前言
 
-后台是从网上down下来的，接口里面有一部分，另一部分是用mock模拟。
+后台接口有一部分是从网上down下来的，另一部分是用mock模拟。
+
+
+### 项目预览：
+
+一个仿外卖的vue单页应用程序Web App（spa），包含常见的功能
+
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/1.png)
+
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/2.png)
+
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/3.png)
 
 ### 项目启动
 下载下来后，在vuefood中的vue-take-server根路径中打开cmd运行
