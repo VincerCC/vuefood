@@ -6,12 +6,14 @@
 ### 项目预览：
 
 一个仿外卖的vue单页应用程序Web App（spa），包含常见的功能
-
+1. app首页及导航页
 ![img](https://github.com/VincerCC/vuefood/blob/master/image/app%E9%A6%96%E9%A1%B5.png)
-
-![img](https://github.com/PsychicHira/vue-take/blob/master/img/2.png)
-
-![img](https://github.com/PsychicHira/vue-take/blob/master/img/3.png)
+2. 商品列表&购物车&商品详情
+![img](https://github.com/VincerCC/vuefood/blob/master/image/%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png)
+3. 短信登录&账号密码登录
+![img](https://github.com/VincerCC/vuefood/blob/master/image/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.png)
+4. 评论&商家信息&商家图片
+![img](https://github.com/VincerCC/vuefood/blob/master/image/%E8%AF%84%E8%AE%BA%26%E5%95%86%E5%AE%B6%E4%BF%A1%E6%81%AF%26%E5%95%86%E5%AE%B6%E5%9B%BE%E7%89%87.png)
 
 ### 项目启动
 下载下来后，在vuefood中的vue-take-server根路径中打开cmd运行
